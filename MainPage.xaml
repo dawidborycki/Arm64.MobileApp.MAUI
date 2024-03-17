@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Arm64.MobileApp.MAUI.MainPage">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="Medium" />
+            <Setter Property="Margin"
+                    Value="10" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="FontSize"
+                    Value="Medium" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Label for Displaying Processor Architecture -->
+        <Label x:Name="LabelProcessorArchitecture"
+               Text="Processor Architecture: x64"
+               Grid.ColumnSpan="2" />
+
+        <!-- Label and Entry for Vector Size -->
+        <Label Text="Vector size:"
+               Grid.Row="1" />
+        <Entry x:Name="EntryVectorSize"
+               Grid.Row="1"
+               Grid.Column="1"
+               Text="10000" />
+
+        <!-- Label and Entry for Execution Count -->
+        <Label Text="Execution Count:"
+               Grid.Row="2" />
+
+        <Entry x:Name="EntryExecutionCount"
+               Grid.Row="2"
+               Grid.Column="1"
+               Text="1000" />
+
+        <!--Buttons-->
+        <HorizontalStackLayout Grid.Row="3"
+                               Grid.ColumnSpan="2"
+                               Spacing="10"
+                               Margin="5">
+
+            <Button x:Name="ButtonRunCalculations"
+                    Text="Run calculations"
+                    Clicked="ButtonRunCalculations_Clicked" />
+
+            <Button x:Name="ButtonClearResults"
+                    Text="Clear results"
+                    Clicked="ButtonClearResults_Clicked" />
+
+        </HorizontalStackLayout>
+
+        <!-- List View for Displaying Execution Times -->
+        <ListView x:Name="ListViewResults"
+                  Grid.Row="4"
+                  Grid.ColumnSpan="2"
+                  Margin="10" />
+
+    </Grid>
+</ContentPage>
